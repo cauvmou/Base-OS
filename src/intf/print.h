@@ -27,3 +27,4 @@ void print_clear();
 void print_char(char c);
 void print_string(char* s);
 void print_set_color(uint8_t foreground, uint8_t background);
+void print_string_centered(char* s);

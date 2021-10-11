@@ -78,6 +78,34 @@ void print_string(char* s) {
     }
 }
 
+size_t string_length(char* s) {
+    for (size_t i = 0; 1; i++) {
+        if (s[i] == '\0') {
+            return i;
+        }
+    }
+}
+
+void print_string_centered(char* s) {
+    char* out = "                                                                                ";
+    size_t re = NUM_COLS - string_length(s);
+    for (size_t i = 0; i < re/2; i++) {
+        out[i] = ' ';
+    }
+    for (size_t i = 0; 1; i++) {
+        if (s[i] == '\0') {
+            break;
+        }
+        out[i+re/2] = (uint8_t) s[i];
+    }
+    for (size_t i = 0; i < re/2; i++) {
+        out[i+re/2+string_length(s)] = ' ';
+    }
+    out[string_length(out)-1] = ' ';
+    out[string_length(out)] = '\0';
+    print_string(out);
+}
+
 void print_set_color(uint8_t foreground, uint8_t background) {
     color = foreground + (background << 4);
 }
